@@ -25,7 +25,7 @@ const resolveFiles = async (dir, log) => {
 
     const filenames = [];
     for (const file of await readdir(dir)) {
-        if (!(await stat(path.join(dir, file))).isDirectory()) {
+        if (!(await stat(path.join(dir, file))).isDirectory() && file.endsWith('.js')) {
             filenames.push(file);
         }
     }
